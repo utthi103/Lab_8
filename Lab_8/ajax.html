@@ -1,0 +1,37 @@
+<html lang="en">
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+<body>
+   <script type="text/javascript">
+    function ajaxFunction(u){
+        var xmlHttp;
+        var us= document.getElementById(u).value;
+        {
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function()
+            {
+                if(xmlHttp.readyState==4){
+                    if(xmlHttp.responseText==us)
+                    document.register.check.value='da ton tai';
+                    else    
+                        document.register.check.value='chua ton tai';
+                        // echo 'us';
+                }
+            }
+            xmlHttp.open("GET", "process.php", true);
+            xmlHttp.send(null);
+        }
+    }
+   </script>
+
+   <form action="" name = "register">
+    Username: <input type="text" onchange="ajaxFunction(this.id);" id="username" name="username" />
+    Trang thai: <input type="text" name="check" />
+   </form>
+
+</body>
+</html>
